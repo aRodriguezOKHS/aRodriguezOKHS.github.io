@@ -1,152 +1,178 @@
 body {
-    background: rgb(0, 0, 0);
-    color: rgb(35, 191, 230);
-    padding: 10px;
-    font-family: Arial, sans-serif;
+  background: rgb(0, 0, 0);
+  color: skyblue;
+  padding: 10px;
+  font-family: Arial, sans-serif;
 }
 
 #all-contents {
-    max-width: 800px;
-    margin: auto;
+  max-width: 800px;
+  margin: auto;
 }
 
 /* navigation menu */
 nav {
-    background: #444;
+  background-color: skyblue;
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 9px;
+  border-color: orangered;
 }
 
 h1 {
-    display: flex;
-    align-items: center;
-    color: rgb(219, 84, 5);
-    flex: 1;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  color: orangered;
+  flex: 1;
+  margin: 0;
 }
 
 #nav-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  color: skyblue;
 }
 
 .nav-li {
-    display: inline-block;
-    padding: 0 10px;
+  display: inline-block;
+  padding: 0 10px;
 }
 
 a {
-    text-decoration: none;
-    color: #e67104;
+  text-decoration: none;
+  color: orangered;
 }
 
 /* main container area beneath menu */
 main {
-    background: rgb(16, 16, 32);
-    display: flex;
-    margin-top: 20px;
+  background: rgb(16, 16, 32);
+  display: flex;
+  margin-top: 20px;
 }
 
 .sidebar {
-    margin-right: 25px;
-    padding: 10px;
+  margin-right: 25px;
+  padding: 10px;
 }
 
 .sidebar-img {
-    width: 200px;
+  width: 250px;
+  border-style: solid;
+  border-width: 8px;
+  border-color: orangered skyblue orangered skyblue;
 }
 
 .content {
-    flex: 1;
-    padding: 15px;
+  flex: 1;
+  padding: 15px;
 }
 
 /* interests section styles */
 #interests {
-    border: 4px rgb(226, 66, 3) ridge;
-    padding: 8px;
-    margin-top: 20px;
+  border-style: dashed;
+  padding: 8px;
+  margin-top: 20px;
+  border-color: orangered;
 }
 
-h2, h3 {
-    margin: 0px;
+.button1 {
+  color: orangered;
+  background-color: skyblue;
+  border-style: solid;
+  border-width: 3px;
+}
+
+h2,
+h3 {
+  margin: 0px;
+  color: azure;
 }
 
 /* Portfolio styles */
 .content h1 {
-    color: rgb(205, 73, 7);
-  }
-  
-  #portfolio {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  #portfolio li {
-    background: #d52d03;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  #portfolio li:hover {
-    background: #150ede;
-  }
-  
-  #portfolio a {
-    text-decoration: none;
-    color: #060707;
+  color: orangered;
+}
+
+#portfolio {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#portfolio li {
+  background: orangered;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-style: groove;
+}
+
+#portfolio li:hover {
+  background: lightblue;
+}
+
+#portfolio a {
+  text-decoration: none;
+  color: #060707;
+}
+
+.button2 {
+  color: orangered;
+  background-color: skyblue;
+}
+
+/* responsive web design */
+@media screen and (min-width: 120px) and (max-width: 1080px) {
+  main {
+    height: 100ch;
+    zoom: 1.5;
+    display: grid;
   }
 
-  /* responsive web design */
-@media screen and (min-width: 120px) and (max-width: 1080px) {
-    main {
-      height: 100ch;
-      zoom: 1.5;
-      display: grid;
-    }
-  
-    h1 {
-      font-size: 44px;
-    }
-  
-    h2 {
-      font-size: 42px;
-    }
-  
-    h3 {
-      font-size: 36px;
-    }
-  
-    #all-contents {
-      height: 100ch;
-      margin: none;
-    }
-  
-    a {
-      font-size: 42px;
-    }
-  
-    .sidebar {
-      margin-right: 0px;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .sidebar-img {
-      width: 100%;
-    }
-  
-    p,
-    li {
-      font-size: 24px;
-    }
-  
-    .content {
-      align-content: center;
-      justify-content: center;
-    }
+  h1 {
+    font-size: 44px;
   }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  #all-contents {
+    height: 100ch;
+    margin: none;
+  }
+
+  a {
+    font-size: 42px;
+  }
+
+  .sidebar {
+    margin-right: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar-img {
+    width: 100%;
+  }
+
+  p,
+  li {
+    font-size: 24px;
+  }
+
+  .content {
+    align-content: center;
+    justify-content: center;
+  }
+}
