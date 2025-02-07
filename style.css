@@ -22,6 +22,7 @@ nav {
   border-right-style: solid;
   border-width: 9px;
   border-color: orangered;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -93,6 +94,11 @@ h2,
 h3 {
   margin: 0px;
   color: azure;
+}
+
+#name {
+  font-style: italic;
+  text-decoration: underline;
 }
 
 /* Portfolio styles */
