@@ -44,6 +44,19 @@ $(function () {
     createPlatform(100, 100, 10, 550, "black");
     createPlatform(670, 200, 100, 15, "orangered");
     createPlatform(575, 90, 100, 15, "orangered");
+    createPlatform(800, 0, 10, 630, "black");
+    createPlatform(1000, 300, 10, 630, "black");
+    createPlatform(990, 640, 5, 5, "orangered");
+    createPlatform(815, 520, 5, 5, "orangered");
+    createPlatform(990, 400, 5, 5, "orangered");
+    createPlatform(1000, 300, 300, 10, "black");
+    createPlatform(800, 200, 500, 10, "black");
+    createPlatform()
+    createPlatform()
+    createPlatform()
+    createPlatform()
+    createPlatform()
+
 
 
 
