@@ -48,11 +48,10 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
-        var boardheight = jQuery(window).height();
-        var randNum = Math.random(99) * 100;
+        var boardHeight = jQuery(window).height();
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        setInterval(update, 20);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
@@ -75,9 +74,13 @@
         // TODO 2 - Variable declarations
         var positionX = 10;
         var points = 0;
-        var speed = 10;
+        var speed = 8;
         var positionY = 150;
         var speedY = 20;
+        var randomNumber;
+        var randomNumber2;
+        var randomNumber3;
+        var colorStr = "rgb(50, 25, 250)";
 
         /*
       	This Function will be called 20 times/second. Each time it is called,
@@ -89,20 +92,34 @@
           moveBoxTo(positionX, positionY);
           positionX = positionX + speed;
           positionY = positionY + speedY;
-          if (positionX > boardWidth) speed *= -1;
-          {
-            // Code to reverse speed goes here
+          if (positionX > boardWidth) {
+            speed *= -1;
           }
-          if (positionX < 0) speed *= -1;
-          {
-          if (positionY > boardheight) {
+          // Code to reverse speed goes here
+          if (positionX < 0) {
+            speed *= -1;
+          }
+          if (positionY > boardHeight) {
             speedY = speedY * -1;
-          } 
+          }
           if (positionY < 0) {
             speedY = speedY * -1;
           }
-            //Code to reverse speed goes here
+          //Code to reverse speed goes here
+          function getRandomColor() {
+            colorStr =
+              "rgb(" +
+              randomNumber +
+              ", " +
+              randomNumber2 +
+              ", " +
+              randomNumber3 +
+              ")";
+            box.css("background-color", colorStr);
           }
+          randomNumber = Math.floor(Math.random() * 255);
+          randomNumber2 = Math.floor(Math.random() * 255);
+          randomNumber3 = Math.floor(Math.random() * 255);
         }
 
         /*
@@ -111,12 +128,16 @@
       	the left side of the screen.
       	*/
         function handleBoxClick() {
-          positionX = 0;
+          var randNumX = Math.random() * boardWidth;
+          var randNumY = Math.random() * boardHeight;
+          positionX = randNumX;
+          positionY = randNumY;
           points = points + 1;
           // Adds 1 to variableName
           changeBoxText(points);
           speed = 3 * points + 10;
-          // Adds 3 to variableName
+          // Adds 3 to variableNam
+          getRandomColor();
         }
       })();
     </script>
