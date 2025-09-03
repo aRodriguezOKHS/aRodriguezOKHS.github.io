@@ -77,7 +77,7 @@ $(document).ready(function () {
 
   function handleBad(data, repeat) {
     resetDisplay();
-    currentIndex = Math.floor(Math.random() * dataShapes.length)
+    currentIndex = Math.floor(Math.random() * dataShapes.length);
     repeat++;
     setBackgroundWithMixed(data, repeat);
     animationDetails.displayType = 3;
