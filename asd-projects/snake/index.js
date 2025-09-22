@@ -227,7 +227,7 @@ function hasCollidedWithSnake() {
 function endGame() {
   // stop update function from running
 
-  alert("Game Ended");
+  alert("It ain't that hard luh bro lock in");
 
   clearInterval(updateInterval);
   started = false; // reset the started variable
@@ -379,7 +379,7 @@ function calculateHighScore() {
   if (score > highScore) {
     sessionStorage.setItem("highScore", score);
     highScore = score;
-    alert("New High Score!");
+    alert("New high score tho good stuff");
   }
 
   return highScore;
