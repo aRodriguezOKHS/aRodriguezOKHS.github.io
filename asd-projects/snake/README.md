@@ -654,10 +654,10 @@ The `setInterval()` function makes that happen repeatedly and smoothly, giving u
 
 If your snake isn’t moving as expected, try this:
 
-   ```js
-   console.log("Head is at:", snake.head.row, snake.head.column);
-   console.log("Direction:", snake.head.direction);
-   ```
+```js
+console.log("Head is at:", snake.head.row, snake.head.column);
+console.log("Direction:", snake.head.direction);
+```
 
 > Watch the console as you press arrow keys — you should see the direction update and the position change accordingly. If you don't, then check where those values are being set and updated in your code.
 
@@ -674,34 +674,36 @@ If your snake isn’t moving as expected, try this:
 1. **Find the comment for `// TODO 9`** in your code. It is located in the **Helper Functions** section.
 
 2. **Create a new function called `moveBodyAToBodyB`** that takes two parameters: `bodyA` and `bodyB`.
+
    - These will represent two segments of the snake's body, which will both be objects with `row`, `column`, and `direction` properties.
 
 3. Inside the function, **add code that does the following**:
+
    - Set `bodyA`'s `row`, `column`, and `direction` properties to match `bodyB`'s.
 
 4. **Test your function.**
 
    - Below the function, add the following code to test it:
 
-      ```js
-      var bodyA = { row: 5, column: 5, direction: "right" };
-      var bodyB = { row: 6, column: 5, direction: "down" };
-      console.log(`before moving, body A: ${JSON.stringify(bodyA)}`); // Should log: { row: 5, column: 5, direction: "right" }
-      moveBodyAToBodyB(bodyA, bodyB);
-      console.log(`after moving, body A: ${JSON.stringify(bodyA)}`); // Should log: { row: 6, column: 5, direction: "down" } || Note the match with bodyB
-      ```
+     ```js
+     var bodyA = { row: 5, column: 5, direction: "right" };
+     var bodyB = { row: 6, column: 5, direction: "down" };
+     console.log(`before moving, body A: ${JSON.stringify(bodyA)}`); // Should log: { row: 5, column: 5, direction: "right" }
+     moveBodyAToBodyB(bodyA, bodyB);
+     console.log(`after moving, body A: ${JSON.stringify(bodyA)}`); // Should log: { row: 6, column: 5, direction: "down" } || Note the match with bodyB
+     ```
 
    - If the output matches, your function is most likely working!
 
    - Next, delete the test code and replace it with the following:
 
-      ```js
-      console.log("Moving body A to body B...");
-      setTimeout(() => {
-        moveBodyAToBodyB(snake.body[1], snake.head);
-        repositionSquare(snake.body[1]);
-      }, 2_000);
-      ```
+     ```js
+     console.log("Moving body A to body B...");
+     setTimeout(() => {
+       moveBodyAToBodyB(snake.body[1], snake.head);
+       repositionSquare(snake.body[1]);
+     }, 2_000);
+     ```
 
 - This will move the second segment of the snake's body to the position of the head after 2 seconds.
 - If your function is working correctly, you should see the second segment of the snake's body move to the position of the head after 2 seconds after refreshing your live server tab. There will now be a gap between the head and the third segment of the snake's body after this happens.
@@ -959,16 +961,16 @@ This will turn your snake into a moving rainbow!
 
 - Create a list (array) called `colors`:
 
-   ```js
-   ["red", "orange", "yellow", "green", "blue", "purple"];
-   ```
+  ```js
+  ["red", "orange", "yellow", "green", "blue", "purple"];
+  ```
 
 - Add a new variable (like `colorIndex`) to track which color comes next
 - After you call `makeSnakeSquare()`, immediately apply the background color using:
 
-   ```js
-   snake.tail.element.css("backgroundColor", colors[colorIndex]);
-   ```
+  ```js
+  snake.tail.element.css("backgroundColor", colors[colorIndex]);
+  ```
 
 - After each new square is created, increase `colorIndex`. If it goes past the end of the list, loop it back to 0.
   - Bonus: use the modulo operator (`%`) to wrap around the index.
