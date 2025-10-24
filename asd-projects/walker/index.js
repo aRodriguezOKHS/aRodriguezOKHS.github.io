@@ -23,6 +23,11 @@ function runProgram() {
     speedY: 0, // vertical speed
   };
 
+  var leftWall = 0; // Position of Left Wall
+  var topWall = 0; // Position of Top Wall
+  var rightWall = $("#board").width(); // Position of Right Wall
+  var bottomWall = $("#board").height(); // Position of Bottom Wall
+
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
@@ -37,8 +42,8 @@ function runProgram() {
 
   Note: You can have multiple event listeners for different types of events.
   */
-  $(document).on("keydown", handleKeyDown);
-  $(document).on("keyup", handleKeyUp);
+  $(document).on("keydown", handleKeyDown); // Actually moves the box when key is detected
+  $(document).on("keyup", handleKeyUp); // Stops moving when key is released
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -49,7 +54,6 @@ function runProgram() {
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    // the educational system failed.
     repositionGameItem();
     wallCollision();
     redrawGameItem();
@@ -63,28 +67,37 @@ function runProgram() {
   */
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
-      console.log("Left pressed");
-      walker.speedX += -5;
-    } else if (event.which === KEY.UP) {
-      console.log("Up pressed");
-      walker.speedY += -5;
-    } else if (event.which === KEY.RIGHT) {
-      console.log("Right pressed");
-      walker.speedX += 5;
-    } else if (event.which === KEY.DOWN) {
-      console.log("Down pressed");
-      walker.speedY += 5;
+      walker.speedX = -5;
     }
+
+    if (event.which === KEY.UP) {
+      walker.speedY = -5;
+    }
+
+    if (event.which === KEY.RIGHT) {
+      walker.speedX = 5;
+    }
+
+    if (event.which === KEY.DOWN) {
+      walker.speedY = 5;
+    }
+    // When the key is being pressed, it will move any the direction of
   }
 
   function handleKeyUp(event) {
     if (event.which === KEY.LEFT) {
       walker.speedX = 0;
-    } else if (event.which === KEY.UP) {
+    }
+
+    if (event.which === KEY.UP) {
       walker.speedY = 0;
-    } else if (event.which === KEY.RIGHT) {
+    }
+
+    if (event.which === KEY.RIGHT) {
       walker.speedX = 0;
-    } else if (event.which === KEY.DOWN) {
+    }
+
+    if (event.which === KEY.DOWN) {
       walker.speedY = 0;
     }
   }
@@ -108,29 +121,21 @@ function runProgram() {
   }
 
   function redrawGameItem() {
-    //blame the educational system.
-    // I'll leave it here regardless
-    // they selling me 100%
-    $("#walker").css("left", walker.x).css("top", walker.y);
-    //console.log("Walker position:", walker.x, walker.y);
+    $("#walker").css("left", walker.x);
+    $("#walker").css("top", walker.y);
   }
 
   function wallCollision() {
-    var walkerWidth = walker.x + 50;
-    var walkerHeight = walker.y + 50;
-    var leftWall = 0;
-  var topWall = 0;
-  var rightWall = $("#board").width();
-  var bottomWall = $("#board").height();
+    // Keeps walker from being able to move out the box
+    var walkerRightSide = walker.x + 50;
+    var walkerBottomSide = walker.y + 50;
 
-    if (walker.x < leftWall) {
+    if (walker.x < leftWall || rightWall < walkerRightSide) {
       walker.x -= walker.speedX;
-    } else if (walker.y < topWall) {
+    }
+
+    if (walker.y < topWall || bottomWall < walkerBottomSide) {
       walker.y -= walker.speedY;
-    } else if (walkerWidth > rightWall) {
-      walker.x -= walker.speedX
-    } else if (walkerHeight > bottomWall) {
-     walker.y -= walker.speedY
     }
   }
 }
