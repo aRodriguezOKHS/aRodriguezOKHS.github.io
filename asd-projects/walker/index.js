@@ -70,7 +70,7 @@ function runProgram() {
   Note: You can have multiple event handlers for different types of events.
   */
 
-  // When the key is being pressed, it will move any the direction of
+  // When the key is being pressed, walker will move in the direction of the key is pressed
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
       walker.speedX = -5;
@@ -114,13 +114,13 @@ function runProgram() {
     $(document).off();
   }
 
-  // add speed to according variable position
+  // Repositions the walker for every new frame
   function repositionGameItem() {
     walker.x += walker.speedX;
     walker.y += walker.speedY;
   }
 
-  // Shows the redrawed/position walker
+  // Shows the redrawn walker
   function redrawGameItem() {
     $("#walker").css("left", walker.x);
     $("#walker").css("top", walker.y);
