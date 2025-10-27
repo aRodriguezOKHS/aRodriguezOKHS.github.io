@@ -21,6 +21,8 @@ function runProgram() {
     y: 0, // vertical position (up/down)
     speedX: 0, // horizontal speed
     speedY: 0, // vertical speed
+    width: parseInt($("#walker").css("width")),
+    height: parseInt($("#walker").css("height"))
   };
 
   var leftWall = 0; // Position of Left Wall
@@ -53,6 +55,8 @@ function runProgram() {
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+
+  // Calls these functions every new frame
   function newFrame() {
     repositionGameItem();
     wallCollision();
@@ -65,38 +69,34 @@ function runProgram() {
   
   Note: You can have multiple event handlers for different types of events.
   */
+
+  // When the key is being pressed, it will move any the direction of
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
       walker.speedX = -5;
     }
-
     if (event.which === KEY.UP) {
       walker.speedY = -5;
     }
-
     if (event.which === KEY.RIGHT) {
       walker.speedX = 5;
     }
-
     if (event.which === KEY.DOWN) {
       walker.speedY = 5;
     }
-    // When the key is being pressed, it will move any the direction of
   }
 
+  // When key is released, it stops the walker
   function handleKeyUp(event) {
     if (event.which === KEY.LEFT) {
       walker.speedX = 0;
     }
-
     if (event.which === KEY.UP) {
       walker.speedY = 0;
     }
-
     if (event.which === KEY.RIGHT) {
       walker.speedX = 0;
     }
-
     if (event.which === KEY.DOWN) {
       walker.speedY = 0;
     }
@@ -106,34 +106,33 @@ function runProgram() {
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+  // stop the interval timer
   function endGame() {
-    // stop the interval timer
     clearInterval(interval);
 
     // turn off event handlers
     $(document).off();
   }
 
+  // add speed to according variable position
   function repositionGameItem() {
-    // add speed to according variable position
     walker.x += walker.speedX;
     walker.y += walker.speedY;
   }
 
+  // Shows the redrawed/position walker
   function redrawGameItem() {
     $("#walker").css("left", walker.x);
     $("#walker").css("top", walker.y);
   }
 
+  // Keeps walker from being able to move out the box
   function wallCollision() {
-    // Keeps walker from being able to move out the box
-    var walkerRightSide = walker.x + 50;
-    var walkerBottomSide = walker.y + 50;
-
+    var walkerRightSide = walker.x + walker.width;
+    var walkerBottomSide = walker.y + walker.height;
     if (walker.x < leftWall || rightWall < walkerRightSide) {
       walker.x -= walker.speedX;
     }
-
     if (walker.y < topWall || bottomWall < walkerBottomSide) {
       walker.y -= walker.speedY;
     }
