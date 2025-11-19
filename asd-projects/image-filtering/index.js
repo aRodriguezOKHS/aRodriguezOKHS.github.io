@@ -67,21 +67,25 @@ function applyFilterNoBackground(filterFunction) {
 
 
 // TODO 6: Create the keepInBounds function
+// Keeps the color values within 255
 function keepInBounds(x) {
  return x < 0 ? 0 : (x > 255 ? 255 : x);
 }
 
 // TODO 4: Create reddify filter function
+// This changes the value of red to 200
 function reddify(pixelArr) {
   pixelArr[RED] = 200;
 }
 
 // TODO 7 & 8: Create more filter functions
+// Decreases the value of blue by 50
 function decreaseBlue(pixelArr) {
   pixelArr[BLUE] -= 50;
   pixelArr[BLUE] = keepInBounds(pixelArr[BLUE]);
 }
 
+// Increases the green value by adding the blue value
 function increaseGreenByBlue(pixelArr) {
   pixelArr[GREEN] += pixelArr[BLUE];
   pixelArr[GREEN] = keepInBounds(pixelArr[GREEN]);
